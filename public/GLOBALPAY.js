@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isSecure = window.location.protocol === 'https:';
         const wsProtocol = isSecure ? 'wss' : 'ws';
         // Use the same hostname the page is served from, standard ports are implicit
-        const socketUrl = `${wsProtocol}://${window.location.hostname}:8080`;
+        const socketUrl = `${wsProtocol}://${window.location.hostname}`;
 
         console.log(`Attempting to connect WebSocket via ${socketUrl}...`);
 
